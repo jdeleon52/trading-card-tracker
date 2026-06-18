@@ -1,5 +1,6 @@
 # Trading Card Tracker
 Java program for managing a trading card collection
+(Output is on console for now. Using this only to practice)
 
 # Features
 - Add cards

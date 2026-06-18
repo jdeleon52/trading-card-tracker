@@ -1,0 +1,20 @@
+Trading Card Tracker Notes
+
+src/
+|   |--Main.java
+|   |--Card.java
+|   |--CollectionManager.java
+|   |--FileManager.java
+
+6/16/26
+- Created Card, CollecionManager, FileManager files
+- implemented addCard and removeCard methods in CollectionManager
+- updated README file
+
+6/17/26
+- work mostly in CollectionManager
+- filled in findCard and displayCards
+- added displayTotalCards and DisplaySingleCard
+- updated README
+- figuring out what to put in main for first version
+
