@@ -3,6 +3,8 @@ import java.util.HashMap;
 
 public class CollectionManager {
     private HashMap<String, Integer> cards;
+    // for later versions, use following line
+    // private HashMap<String, Card> cards;
 
     public CollectionManager() {
         cards = new HashMap<>();
@@ -10,8 +12,12 @@ public class CollectionManager {
 
     public void addCard(String cardName, int quantity) {
         //to keep all names uniform, convert to lower case letters
-        cardName = cardName.toLowerCase();
-
+        cardName = cardName.trim().toLowerCase();
+        if (quantity <= 0) {
+            System.out.println("Quantity must be greater than 0.");
+            return;
+        }
+        
         //check if card is already in HashMap
         if (cards.containsKey(cardName)) {
             int currentQuantity = cards.get(cardName); // looks up cardName and stores its quantity in currentQuantity
@@ -22,7 +28,11 @@ public class CollectionManager {
     }
 
     public void removeCard(String cardName, int quantity) {
-        cardName = cardName.toLowerCase();
+        cardName = cardName.trim().toLowerCase();
+        if (quantity <= 0) {
+            System.out.println("Quantity must be greater than 0.");
+            return;
+        }
 
         // find cardName in cards HashMap
         if (cards.containsKey(cardName)) {
@@ -39,9 +49,9 @@ public class CollectionManager {
         }
     }
 
-    public void findCard(String cardName, int quantity) {
+    public void findCard(String cardName) { //removed 'int quality' param
         // search for card by name and return its quantity
-        cardName = cardName.toLowerCase();
+        cardName = cardName.trim().toLowerCase();
         if (cards.containsKey(cardName)) { // check if cardName is in cards HashMap
             System.out.println("Card found. Quantity: " + cards.get(cardName)); // cardName found, display quantity
         } else {

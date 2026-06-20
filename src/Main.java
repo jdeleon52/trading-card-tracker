@@ -16,7 +16,7 @@ public class Main {
 
         collection.displayCards();
         System.out.println();
-        collection.findCard("Pikachu", 0);
+        collection.findCard("Pikachu");
         collection.removeCard("Charizard", 1);
         collection.displayCards();
         System.out.println();

@@ -40,7 +40,7 @@ public class Card {
     }
 
     @Override
-    public String toString(){
+    public String toString(){ //not final
         String str = "Card";
         return str;
     }
