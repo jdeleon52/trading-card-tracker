@@ -16,11 +16,5 @@ public class Main {
 
         collection.displayCards();
         System.out.println();
-        collection.findCard("Pikachu");
-        collection.removeCard("Charizard", 1);
-        collection.displayCards();
-        System.out.println();
-        collection.removeCard("Bulbasaur", 5);
-        collection.displayCards();
     }
 }
