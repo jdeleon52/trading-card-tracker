@@ -89,4 +89,12 @@ public class CollectionManager {
             System.out.println("Card not found.");
         }
     }
+
+    public boolean checkIfEmpty() {
+        // check if collection is empty
+        if (cards.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
 }

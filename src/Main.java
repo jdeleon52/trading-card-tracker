@@ -4,17 +4,62 @@ public class Main {
         System.out.println("Trading Card Tracker");
         CollectionManager collection = new CollectionManager();
         Scanner keyboard = new Scanner(System.in);
-        System.out.printf("Enter name of card to add: ");
-        String cardName = keyboard.nextLine();
-        System.out.printf("Enter quantity of card to add: ");
-        int quantity = keyboard.nextInt();
-        collection.addCard(cardName, quantity);
+        while (true) {
+            System.out.println("1. Add card");
+            System.out.println("2. Display cards");
+            System.out.println("3. Remove card");
+            System.out.println("4. Find card");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+            int choice = keyboard.nextInt();
+            keyboard.nextLine(); // consume the newline character
 
-        collection.addCard("Pikachu", 3);
-        collection.addCard("Charizard", 2);
-        collection.addCard("Bulbasaur", 5);
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter name of card to add: ");
+                    String cardName = keyboard.nextLine();
 
-        collection.displayCards();
-        System.out.println();
+                    System.out.print("Enter quantity of card to add: ");
+                    int quantity = keyboard.nextInt();
+                    keyboard.nextLine();
+
+                    collection.addCard(cardName, quantity);
+                    break;
+                case 2:
+                    collection.displayCards();
+                    System.out.println();
+                    break;
+                case 3:
+                    if (collection.checkIfEmpty() == true) {
+                        System.out.println("Collection is empty. Cannot remove card.");
+                        break;
+                    }
+
+                    System.out.print("Enter name of card to remove: ");
+                    String cardToRemove = keyboard.nextLine();
+
+                    System.out.print("Enter quantity of card to remove: ");
+                    int removeQuantity = keyboard.nextInt();
+                    keyboard.nextLine();
+
+                    collection.removeCard(cardToRemove, removeQuantity);
+                    break;
+                case 4:
+                    if (collection.checkIfEmpty() == true) {
+                        System.out.println("Collection is empty. Cannot find card.");
+                        break;
+                    }
+                    
+                    System.out.print("Enter name of card to find: ");
+                    String cardToFind = keyboard.nextLine();
+                    collection.findCard(cardToFind);
+                    break;
+                case 5:
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
+            }
+        }
     }
 }
