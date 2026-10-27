@@ -11,6 +11,12 @@ public class Main {
             System.out.println("4. Find card");
             System.out.println("5. Exit");
             System.out.print("Enter choice: ");
+            if (!keyboard.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a number.");
+                keyboard.nextLine(); // consume the invalid input
+                continue; // go back to the beginning of the loop
+            }
+
             int choice = keyboard.nextInt();
             keyboard.nextLine(); // consume the newline character
 
@@ -30,7 +36,7 @@ public class Main {
                     System.out.println();
                     break;
                 case 3:
-                    if (collection.checkIfEmpty() == true) {
+                    if (collection.checkIfEmpty()) {
                         System.out.println("Collection is empty. Cannot remove card.");
                         break;
                     }
@@ -45,7 +51,7 @@ public class Main {
                     collection.removeCard(cardToRemove, removeQuantity);
                     break;
                 case 4:
-                    if (collection.checkIfEmpty() == true) {
+                    if (collection.checkIfEmpty()) {
                         System.out.println("Collection is empty. Cannot find card.");
                         break;
                     }

@@ -17,6 +17,11 @@ public class CollectionManager {
             System.out.println("Quantity must be greater than 0.");
             return;
         }
+
+        if (cardName.isEmpty()) {
+            System.out.println("Card name cannot be empty.");
+            return;
+        }
         
         //check if card is already in HashMap
         if (cards.containsKey(cardName)) {
@@ -91,10 +96,6 @@ public class CollectionManager {
     }
 
     public boolean checkIfEmpty() {
-        // check if collection is empty
-        if (cards.isEmpty()) {
-            return true;
-        }
-        return false;
+        return cards.isEmpty();
     }
 }
