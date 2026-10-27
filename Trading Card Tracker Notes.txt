@@ -18,3 +18,14 @@ src/
 - updated README
 - figuring out what to put in main for first version
 
+10/26/26
+- made a few fixes in Main and CollectionManager
+- Added a Collection class
+
+10/27/26
+- converted switch in main to rule switch
+- basic functions are good
+- work on interface next maybe?
+- finish work on Collection class
+- need to develop simple database model
+- found problem in Add Card function, if user enters a non-integer value, InputMismatchException is thrown
