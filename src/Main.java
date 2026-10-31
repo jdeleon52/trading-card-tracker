@@ -22,7 +22,7 @@ public class Main {
             keyboard.nextLine(); // consume the newline character
 
             switch (choice) {
-                case 1:
+                case 1 -> {
                     System.out.print("Enter name of card to add: ");
                     String cardName = keyboard.nextLine();
 
@@ -31,12 +31,12 @@ public class Main {
                     keyboard.nextLine();
 
                     collection.addCard(cardName, quantity);
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     collection.displayCards();
                     System.out.println();
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     if (collection.checkIfEmpty()) {
                         System.out.println("Collection is empty. Cannot remove card.");
                         break;
@@ -50,8 +50,8 @@ public class Main {
                     keyboard.nextLine();
 
                     collection.removeCard(cardToRemove, removeQuantity);
-                    break;
-                case 4:
+                }
+                case 4 -> {
                     if (collection.checkIfEmpty()) {
                         System.out.println("Collection is empty. Cannot find card.");
                         break;
@@ -60,6 +60,7 @@ public class Main {
                     System.out.print("Enter name of card to find: ");
                     String cardToFind = keyboard.nextLine();
                     collection.findCard(cardToFind);
+<<<<<<< HEAD
                     break;
                 case 5:
                     System.out.print("Enter name of collection to create: ");
@@ -67,10 +68,13 @@ public class Main {
                     collection.createCollection(collectionName);
                     break;
                 case 6:
+=======
+                }
+                case 5 -> {
+>>>>>>> a416c6861a5c536ee4a05c000ea4672fa89fd934
                     return;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-                    break;
+                }
+                default -> System.out.println("Invalid choice. Please try again.");
             }
         }
     }
