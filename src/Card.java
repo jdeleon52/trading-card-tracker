@@ -1,4 +1,4 @@
-// Card object
+// Card object with individual details about the card, including name, set, quantity, and value
 
 public class Card {
     private String name;

@@ -9,7 +9,8 @@ public class Main {
             System.out.println("2. Display cards");
             System.out.println("3. Remove card");
             System.out.println("4. Find card");
-            System.out.println("5. Exit");
+            System.out.println("5. Create collection");
+            System.out.println("6. Exit");
             System.out.print("Enter choice: ");
             if (!keyboard.hasNextInt()) {
                 System.out.println("Invalid input. Please enter a number.");
@@ -61,6 +62,11 @@ public class Main {
                     collection.findCard(cardToFind);
                     break;
                 case 5:
+                    System.out.print("Enter name of collection to create: ");
+                    String collectionName = keyboard.nextLine();
+                    collection.createCollection(collectionName);
+                    break;
+                case 6:
                     return;
                 default:
                     System.out.println("Invalid choice. Please try again.");

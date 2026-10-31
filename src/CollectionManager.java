@@ -1,8 +1,9 @@
 // Adds, removes, searches, and displays cards
+//manages multiple collections
 import java.util.HashMap;
 
 public class CollectionManager {
-    private HashMap<String, Integer> cards;
+    private HashMap<String, Collection> cards;
     // for later versions, use following line
     // private HashMap<String, Card> cards;
 
@@ -10,69 +11,22 @@ public class CollectionManager {
         cards = new HashMap<>();
     }
 
-    public void addCard(String cardName, int quantity) {
-        //to keep all names uniform, convert to lower case letters
-        cardName = cardName.trim().toLowerCase();
-        if (quantity <= 0) {
-            System.out.println("Quantity must be greater than 0.");
+    public void createCollection(String collectionName) {
+        //System.out.println("Collection " + collectionName + " created.");
+        String key = collectionName.trim().toLowerCase();
+
+        if (key.isEmpty()) {
+            System.out.println("Collection name cannot be empty.");
             return;
         }
 
-        if (cardName.isEmpty()) {
-            System.out.println("Card name cannot be empty.");
-            return;
-        }
-        
-        //check if card is already in HashMap
-        if (cards.containsKey(cardName)) {
-            int currentQuantity = cards.get(cardName); // looks up cardName and stores its quantity in currentQuantity
-            cards.put(cardName, currentQuantity + quantity); //put card name and update quantity
+        if (cards.containsKey(key)) {
+            System.out.println("Collection already exists.");
         } else {
-            cards.put(cardName, quantity); // if no card with cardName exists, just add the card
-        }
-    }
+            Collection newCollection = new Collection(collectionName.trim());
 
-    public void removeCard(String cardName, int quantity) {
-        cardName = cardName.trim().toLowerCase();
-        if (quantity <= 0) {
-            System.out.println("Quantity must be greater than 0.");
-            return;
-        }
-
-        // find cardName in cards HashMap
-        if (cards.containsKey(cardName)) {
-            int currentQuantity = cards.get(cardName); //store quantity of cardName in currentQuantity
-            int newQuantity = currentQuantity - quantity; // calculate how many cards are left after removing
-
-            if (newQuantity <= 0) {
-                cards.remove(cardName);
-            } else {
-                cards.put(cardName, newQuantity);
-            }
-        } else {
-            System.out.println("Card not found.");
-        }
-    }
-
-    public void findCard(String cardName) { //removed 'int quality' param
-        // search for card by name and return its quantity
-        cardName = cardName.trim().toLowerCase();
-        if (cards.containsKey(cardName)) { // check if cardName is in cards HashMap
-            System.out.println("Card found. Quantity: " + cards.get(cardName)); // cardName found, display quantity
-        } else {
-            System.out.println("Card not found.");
-        }
-    }
-
-    public void displayCards() {
-        // display all cards in collection
-        if (cards.isEmpty()) { // check if cards HashMap is empty
-            System.out.println("No cards in collection.");
-        } else {
-            System.out.println("Cards in collection:");
-            for (String cardName : cards.keySet()) { 
-                System.out.println(cardName + ": " + cards.get(cardName));
-            }
+            cards.put(key, newCollection); // Initialize the collection with a quantity of 0
+            System.out.println("Collection " + collectionName + " created.");
         }
     }
 
